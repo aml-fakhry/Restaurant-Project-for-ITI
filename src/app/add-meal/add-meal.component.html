@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
+    <!-- Brand/logo -->
+    <a class="navbar-brand" >
+      <img src="../../assets/imags/logo.png" alt="logo" style="width:100px; " class="rounded-circle">
+    </a>
+    
+    <!-- Links -->
+    <ul class="navbar-nav" >
+      <li class="nav-item">
+        <a class="nav-link" (click)="goMenu()" >Menu</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="goOrders()">Order List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="goAddMeal()" >Add Meal</a>
+      </li>
+    </ul>
+  </nav>
+<body style="    height: 602px;
+background-size: cover;
+background-position: center">
+<div class="container"  >
+<br><br> <br><br>
+    <form #meal="ngForm" (ngSubmit)="onSubmit()" style="border-radius: 9px;
+    background-color: #62867b94;    height: 365px;">
+        <!-- {{mealModel | json}} -->
+        <div class="form-group">
+          <label><b style="    color: gold;
+    font-size: x-large;
+    font-family: monospace;">Meal Name :</b></label>
+            <input type="text" class="form-control" name="name"   [(ngModel)]="mealModel.name" required  [class.is-invalid]="name.invalid && name.touched"   #name="ngModel" style="width: 80%;
+            margin-left: 98px;
+            height: 43px;
+            background-color: #faebd7a8;"  >
+            <small style=" margin-left: 98px; font-size: 20px; font-weight: bold;"  class="text-danger" [class.d-none]="name.valid || name.untouched">Name is Required</small> 
+        </div>
+    
+        <div class="form-group">
+            <label><b style="    color: gold;
+              font-size: x-large;
+              font-family: monospace;">Description</b></label>
+            <br>
+            <!-- <input type="text" class="form-control" name="name" ngModel required  [class.is-invalid]="name.invalid && name.touched"   #name="ngModel" > -->
+            <textarea class="form-control" name="desc"  required  [class.is-invalid]="desc.invalid && desc.touched"   #desc="ngModel" [(ngModel)]="mealModel.desc" style="width: 80%;
+            margin-left: 98px;
+            height: 114px;
+            background-color: #faebd7a8;"></textarea>
+            <small style=" margin-left: 98px; font-size: 20px; font-weight: bold;" class="text-danger" [class.d-none]="desc.valid || desc.untouched">Description is Required</small> 
+        </div>
+    
+    
+    
+        <input type="submit" [disabled]="meal.form.invalid || topicHasErr" style=" margin-left: 18px;" class="btn btn-primary" value="Add meal">  
+    
+    </form>
+
+</div>
+</body>
